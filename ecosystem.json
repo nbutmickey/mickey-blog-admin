@@ -1,0 +1,27 @@
+{
+  "apps": [
+    {
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "root",
+      "host": ["47.100.253.114"],
+      "port": "22",
+      "ref": "origin/master",
+      "repo": "git@github.com:nbutmickey/mickey-blog-admin.git",
+      "path": "/root/myProject/admin",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
+      "env"  : {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

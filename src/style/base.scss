@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 16px;
+}
+body {
+  background: #ffffff;
+}
+.el-menu {
+  border: 0 none;
+}
+.el-table{
+  font-size: 10px!important;
+}
+section{
+  padding-top: 10px;
+}
+tr {
+  font-size: 10px!important;
+  td {
+    .cell {
+      text-align: center !important;
+    }
+  }
+}
+.el-button--mini{
+  padding: 6px 5px;
+  font-size: 10px;
+}
+//.el-checkbox-button:first-child .el-checkbox-button__inner{
+//  border-radius: 0!important;
+//  border:1px solid #dcdfe6!important;;
+//}
+
+.el-checkbox-button__inner{
+  border-radius: 0!important;
+  border:1px solid #dcdfe6!important;
+}
+.v-note-wrapper .v-note-op .v-left-item .op-icon, .v-note-wrapper .v-note-op .v-right-item .op-icon{
+  width: auto!important;
+  height: auto!important;
+  font-size: 10px!important;
+  padding: 3px!important;
+  margin: 0!important;
+}
