@@ -34,15 +34,36 @@ tr {
 //  border-radius: 0!important;
 //  border:1px solid #dcdfe6!important;;
 //}
+.el-input__inner:focus{
+  border-color: #009A61!important;
+}
 
 .el-checkbox-button__inner{
   border-radius: 0!important;
   border:1px solid #dcdfe6!important;
+  box-shadow: none!important;
 }
+.el-checkbox-button__inner:hover{
+  color: #009A61;
+}
+.el-checkbox-button.is-checked .el-checkbox-button__inner{
+  background-color: #009A61;
+}
+
 .v-note-wrapper .v-note-op .v-left-item .op-icon, .v-note-wrapper .v-note-op .v-right-item .op-icon{
   width: auto!important;
   height: auto!important;
   font-size: 10px!important;
   padding: 3px!important;
   margin: 0!important;
+}
+
+.el-tabs__item.is-active{
+  color: #009A61!important;
+}
+.el-tabs__item:hover{
+  color: #009A61!important;
+}
+.el-tabs__active-bar{
+  background-color: #009A61!important;
 }

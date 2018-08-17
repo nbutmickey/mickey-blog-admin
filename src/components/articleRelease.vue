@@ -9,8 +9,9 @@
         </el-form-item>
         <el-form-item label="标签选择">
           <el-checkbox-group v-model="checkInTagsList" :max="3" >
-            <el-checkbox-button @change="checkTagsList" style="margin: 5px 2px;" v-for="(item,index) in tags" :key="index" :label="item"  name="type" >{{item.tag}}</el-checkbox-button>
+            <el-checkbox-button @change="checkTagsList" style="margin: 5px 2px;" v-for="(item,index) in tags" :key="index" :label="item"  name="type" ><i class="fa fa-tag"></i> {{item.tag}}</el-checkbox-button>
           </el-checkbox-group>
+          <el-button type="success" @click="goToPath"><i class="el-icon-plus"></i> 新增标签</el-button>
         </el-form-item>
         <el-form-item label="文章展示图">
           <el-upload :action="domain"  :data="form"  :on-success="handlePictureSuccess">
@@ -23,6 +24,7 @@
         <el-form-item>
           <el-button type="success" size="medium" @click="upLoadArticle">点击发布</el-button>
           <el-button type="primary" size="medium">存为草稿</el-button>
+          <el-button  size="medium">上传md文件</el-button>
         </el-form-item>
       </el-form>
     </section>
@@ -70,6 +72,9 @@
           ...mapMutations({
             setCurBread:'setCurBread'
           }),
+          goToPath:function(){
+            this.$router.push('/backStage/tagsManage');
+          },
           $imgAdd:function(pos,$file){
             let $vm=this.$refs.med;
             let formdata = new FormData();
