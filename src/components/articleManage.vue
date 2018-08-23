@@ -1,6 +1,6 @@
 <template>
     <section style="font-size: 0.6rem">
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%" height="425">
         <el-table-column type="index"  label="序号"  align="center"></el-table-column>
         <el-table-column prop="title" label="文章标题"   align="center" width="180"></el-table-column>
         <el-table-column prop="tags" label="标签"   align="center"></el-table-column>

@@ -15,7 +15,7 @@
           </el-form>
         </el-tab-pane>
         <el-tab-pane label="标签管理">
-          <el-table :data="tableData" stripe style="width: 100%">
+          <el-table :data="tableData" stripe style="width: 100%" height="425">
             <el-table-column type="index"  label="序号"  align="center"></el-table-column>
             <el-table-column prop="tag" label="标签名"   align="center"></el-table-column>
             <el-table-column  label='操作' align="center" width="180">
