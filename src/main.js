@@ -11,6 +11,8 @@ import 'nprogress/nprogress.css'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 Vue.use(mavonEditor);
+import  emoji from 'markdown-it-emoji'
+mavonEditor.markdownIt.set(emoji);
 
 import axios from 'axios'
 Vue.prototype.$http=axios;

@@ -44,10 +44,10 @@ tr {
   box-shadow: none!important;
 }
 .el-checkbox-button__inner:hover{
-  color: #009A61;
+  color: #009A61!important;
 }
 .el-checkbox-button.is-checked .el-checkbox-button__inner{
-  background-color: #009A61;
+  background-color: #009A61!important;
 }
 
 .v-note-wrapper .v-note-op .v-left-item .op-icon, .v-note-wrapper .v-note-op .v-right-item .op-icon{
