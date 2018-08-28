@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import backStage from '@/components/backStage'
 import articleManage from '@/components/articleManage'
+import articleEdit from '@/components/articleEdit'
 import articleRelease from '@/components/articleRelease'
 import tagsManage from '@/components/tagsManage'
 import messageManage from '@/components/messageManage'
@@ -27,6 +28,11 @@ export default new Router({
         {
           path:'articleManage',
           component:articleManage
+        },
+        {
+          path:'articleEdit/:postId',
+          name:'articleEdit',
+          component:articleEdit
         },
         {
           path:'articleRelease',

@@ -19,7 +19,7 @@
           </el-upload>
         </el-form-item>
         <el-form-item label="文章编辑">
-          <mavon-editor v-model="value" ref=med @imgAdd="$imgAdd"></mavon-editor>
+          <mavon-editor v-model="value" ref=med @imgAdd="$imgAdd" :codeStyle="'solarized-dark'"></mavon-editor>
         </el-form-item>
         <el-form-item>
           <el-button type="success" size="medium" @click="upLoadArticle">点击发布</el-button>
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-  let md = require('markdown-it')().use(require('markdown-it-mark'));
   import {articleRelease} from "../utils/bread";
   import {mapMutations} from 'vuex'
     export default {
@@ -48,7 +47,6 @@
             },//存储token
             fileList2:[],
             tags:[],
-            contentHtml:'',
             checkInTagsList:[],
             ImgSrc:'',
             newArticle:{
@@ -96,11 +94,10 @@
               type: 'warning'
             }).then(
               ()=>{
-                this.contentHtml=md.render(this.value);
                 this.newArticle.newTitle=this.title;
                 this.newArticle.newDesc=this.desc;
                 this.newArticle.newTags=this.checkInTagsList;
-                this.newArticle.newContent=this.contentHtml;
+                this.newArticle.newContent=this.value;
                 this.newArticle.newTime=new Date().getTime();
                 this.newArticle.newImgSrc=this.ImgSrc;
                 this.$http.post('/api/admin/addArticle',{params:{newArticle:this.newArticle}}).then(res=>{
@@ -109,6 +106,11 @@
                       duration: 2000,
                       type: res.data.success?'success':'error'
                     });
+                  this.title='';
+                  this.desc='';
+                  this.checkInTagsList='';
+                  this.value='';
+                  this.ImgSrc='';
                 })
               }
             );

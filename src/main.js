@@ -8,9 +8,12 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 // 全局注册mavonEditor
-import mavonEditor from 'mavon-editor'
+import  mavonEditor  from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import emoji from 'markdown-it-emoji';
+//添加表情
 Vue.use(mavonEditor);
+mavonEditor.markdownIt.use(emoji);
 
 import axios from 'axios'
 Vue.prototype.$http=axios;
