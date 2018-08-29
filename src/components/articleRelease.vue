@@ -37,7 +37,7 @@
         name: "articleRelease",
         data(){
           return{
-            domain:'http://upload.qiniup.com/',//七牛云的上传地址
+            domain:'https://upload.qiniup.com/',//七牛云的上传地址
             formWidth:'90px',
             value:'',
             title:'',
