@@ -8,7 +8,7 @@
           <el-input  v-model="desc"></el-input>
         </el-form-item>
         <el-form-item label="文章编辑">
-          <mavon-editor v-model="value" ></mavon-editor>
+          <mavon-editor v-model="value" ref=med @imgAdd="$imgAdd" :codeStyle="'solarized-dark'" ></mavon-editor>
         </el-form-item>
         <el-form-item>
           <el-button type="success" size="medium" @click="updateArticle">提交修改</el-button>
@@ -24,10 +24,14 @@
           return{
             value:'',
             title:'',
-            desc:''
+            desc:'',
+            form:{
+              token:''
+            },//存储token
           }
         },
         created(){
+          this.beforeUploadPicture();
           this.getArticlesWithDesc();
         },
         methods:{
@@ -36,6 +40,26 @@
               this.title=res.data.title;
               this.desc=res.data.des;
               this.value=res.data.detail;
+            })
+          },
+          $imgAdd:function(pos,$file){
+            let $vm=this.$refs.med;
+            let formdata = new FormData();
+            formdata.append('file', $file);
+            formdata.append('token', this.form.token);
+            this.$http.post(this.domain,formdata, {headers:{
+                'Content-Type':'multipart/form-data'
+              },
+            }).then((res)=>{
+              let url='http://pdj4ekt0a.bkt.clouddn.com/'+res.data.key;
+              $vm.$img2Url(pos, url);
+            })
+          },
+          //上传之前获取token
+          beforeUploadPicture:function() {
+            // 获取后端Token
+            this.$http.get('/api/admin/token').then(res => {
+              this.form.token = res.data.token;
             })
           },
           updateArticle:function () {
