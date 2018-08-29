@@ -22,6 +22,7 @@
         name: "articleEdit",
         data(){
           return{
+            domain:'http://upload.qiniup.com/',
             value:'',
             title:'',
             desc:'',
@@ -51,6 +52,7 @@
                 'Content-Type':'multipart/form-data'
               },
             }).then((res)=>{
+              console.log("imgAdd");
               let url='http://pdj4ekt0a.bkt.clouddn.com/'+res.data.key;
               $vm.$img2Url(pos, url);
             })
@@ -58,8 +60,10 @@
           //上传之前获取token
           beforeUploadPicture:function() {
             // 获取后端Token
+            console.log('token');
             this.$http.get('/api/admin/token').then(res => {
               this.form.token = res.data.token;
+              console.log(this.form.token);
             })
           },
           updateArticle:function () {
