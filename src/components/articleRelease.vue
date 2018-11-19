@@ -82,7 +82,7 @@
                 'Content-Type':'multipart/form-data'
               },
             }).then((res)=>{
-              let url='http://pdj4ekt0a.bkt.clouddn.com/'+res.data.key;
+              let url='http://image.mickey-nbut.cn/'+res.data.key;
               $vm.$img2Url(pos, url);
             })
           },
@@ -121,7 +121,7 @@
           },
           // 上传成功后的回调函数
           handlePictureSuccess:function(res){
-                this.ImgSrc='http://pdj4ekt0a.bkt.clouddn.com/'+res.key;
+                this.ImgSrc='http://image.mickey-nbut.cn/'+res.key;
           },
           //上传之前获取token
           beforeUploadPicture:function() {
